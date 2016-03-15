@@ -49,3 +49,11 @@ read.serialConnection <- function(con) {
   }
   res
 }
+
+#' Looks for active serial ports.
+#' 
+check.devices <- function() {
+  os_path <- switch(.Platform$OS.type, windows = "//./", unix = "/dev/")
+  os_prefix <- switch(.Platform$OS.type, windows = "COM", unix = "tty")
+  
+}
