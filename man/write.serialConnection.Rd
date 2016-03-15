@@ -9,8 +9,11 @@ write.serialConnection(con, dat)
 \arguments{
 \item{con}{serial connection}
 
-\item{dat}{data string to write on the serial interface. At the moment this 
-must be a character string \code{"..."}. See the example section in \code{\link{serial}}.}
+\item{dat}{data string to write on the serial interface. This can either
+be a character string or any R object that can be coerced
+to a character string by the \code{\link{toString}} function,
+though the latter occurs with a warning. 
+See the example section in \code{\link{serial}}.}
 }
 \description{
 Writes data to serial interface.
