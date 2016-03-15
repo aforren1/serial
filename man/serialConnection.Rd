@@ -4,7 +4,7 @@
 \alias{serialConnection}
 \title{Sets up the interface parameters.}
 \usage{
-serialConnection(name, port = "com1", mode = "115200,n,8,1",
+serialConnection(name, port = "com1", mode = "115200, n, 8, 1",
   buffering = "none", newline = 0, eof = "", translation = "lf",
   handshake = "none")
 }
