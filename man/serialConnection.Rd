@@ -11,8 +11,8 @@ serialConnection(name, port = "com1", mode = "115200,n,8,1",
 \arguments{
 \item{name}{optional name for the connection}
 
-\item{port}{comport name, should also work in Linux; also virtual com's are 
-supported; maybe USB schould work too}
+\item{port}{COM port name, should also work in Linux. Also, virtual COMs are 
+supported -- USB should work too}
 
 \item{mode}{communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}"
 \describe{
@@ -22,11 +22,11 @@ supported; maybe USB schould work too}
    \item{\code{STOPBITS}}{integer number of stop bits. This can be "1" or "2"}
        }}
 
-\item{buffering}{"\code{none}", for RS232 serial interface, other modes don't work in this case}
+\item{buffering}{"\code{none}", for RS232 serial interface only; other modes don't work in this case}
 
-\item{newline}{\code{<BOOL>}, whether a new transmission starts with a newline or not.
+\item{newline}{\code{<BOOL>}, whether a new transmission starts with a newline or not
 \describe{
-  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} befor transmitting}
+  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} before transmitting}
   \item{\code{FALSE} or 0}{no newline}
           }}
 
@@ -34,7 +34,7 @@ supported; maybe USB schould work too}
 if \code{<translation>} is 'binary' and the stream is a file}
 
 \item{translation}{each transmitted string is terminated by the transmission
-character. This could be 'lf', 'cr', 'crlf', 'binary'}
+character. This could be 'lf', 'cr', 'crlf', or 'binary'}
 
 \item{handshake}{determines the type of handshaking the communication
 \describe{
@@ -44,7 +44,7 @@ character. This could be 'lf', 'cr', 'crlf', 'binary'}
   }}
 }
 \value{
-An object of the class "\code{serialConnection}" is returned
+An object of the class "\code{serialConnection}" is returned.
 }
 \description{
 Sets up the interface parameters.

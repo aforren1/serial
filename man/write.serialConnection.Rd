@@ -2,18 +2,18 @@
 % Please edit documentation in R/serial.R
 \name{write.serialConnection}
 \alias{write.serialConnection}
-\title{Wirtes data to serial interface.}
+\title{Writes data to serial interface.}
 \usage{
-write.serialConnection(con,dat)
+write.serialConnection(con, dat)
 }
 \arguments{
-\item{con}{serial Connection}
+\item{con}{serial connection}
 
 \item{dat}{data string to write on the serial interface. At the moment this 
 must be a string \code{"..."}. See examle section in \code{\link{serial}}.}
 }
 \description{
-Wirtes data to serial interface.
+Writes data to serial interface.
 }
 \examples{
  # See the top package documentation

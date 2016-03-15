@@ -2,7 +2,7 @@
 % Please edit documentation in R/init.R
 \name{close.serialConnection}
 \alias{close.serialConnection}
-\title{Function to close an serial interface.}
+\title{Function to close a serial interface.}
 \usage{
 \method{close}{serialConnection}(con, ...)
 }

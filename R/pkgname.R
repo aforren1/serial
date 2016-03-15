@@ -2,7 +2,7 @@
 #' 
 #' This R package provides the functionality to use the serial communication ports
 #' "COM" to use RS232/RS422/RS485 functionality of the corresponding hardware.
-#' Also virtual COM ports via USB do work, as long as they are mapped to COM[n] (Windows)
+#' Also, virtual COM ports via USB do work, as long as they are mapped to COM[n] (Windows)
 #' or tty[n] (Mac/Linux) in the operating system.
 #' 
 #' @description

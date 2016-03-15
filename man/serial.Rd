@@ -9,47 +9,47 @@
 \describe{
  \item{\code{open}}{opens a serial connection}
  \item{\code{close}}{closes the serial connection}
- \item{\code{read.serialConnection}}{byte wise read from the interface as long as the buffer is empty}
+ \item{\code{read.serialConnection}}{bytewise read from the interface as long as the buffer is empty}
  \item{\code{write.serialConnection}}{writes a string to the serial interface}
 }
 }
 \details{
 This R package provides the functionality to use the serial communication ports
 "COM" to use RS232/RS422/RS485 functionality of the corresponding hardware.
-Also virtual COM-ports via USB do work, as long as they are mapped to COM[n] (win)
-or tty[n] (Linux) in the operating system.
+Also, virtual COM ports via USB do work, as long as they are mapped to COM[n] (Windows)
+or tty[n] (Mac/Linux) in the operating system.
 }
 \examples{
-# for this example I used the 'null-modem' emulator 'com0com' for Windows
-# which is available on 'http://com0com.sourceforge.net/'
-# Here the pair of com-ports is 'CNCA0' <-> 'CNCB0'
+# For this example, I used the 'null-modem' emulator 'com0com' for Windows
+# which is available on 'http://com0com.sourceforge.net/'.
+# Here, the pair of COM ports is 'CNCA0' <-> 'CNCB0'.
 
 # Test the functionality:
 # ======================
 #
-# first: install the virtual null-modem connection like
+# First: Install the virtual null-modem connection like
 #        com0com (win) or tty0tty (linux)
 #        Hint: Some unix insist on port names like 'ttxS[n]'.
 # 
-# second: setup a terminal program (like HTerm or gtkterm) and listen to 
-#         com-port 'CNCB0' (or what ever you have installed)
-#         or (for unix only) 'cat /dev/tnt1' will output tnt1 to console
+# Second: Set up a terminal program (like HTerm or gtkterm) and listen to 
+#         COM port 'CNCB0' (or what ever you have installed)
+#         or (for unix only) 'cat /dev/tnt1' will output tnt1 to the console.
 
 \dontrun{
 
-# Now configure one of the com-ports with appropriate connection properties
-con <- serialConnection(name = "testcon",port = "CNCA0"
-                       ,mode = "115200,n,8,1"
-                       ,newline = 1
-                       ,translation = "crlf"
-                       )
+# Now configure one of the COM ports with appropriate connection properties
+con <- serialConnection(name = "testcon", 
+                        port = "CNCA0",
+                        mode = "115200, n, 8, 1",
+                        newline = 1,
+                        translation = "crlf")
 
-# let's open the serial interface
+# Let's open the serial interface.
 
 open(con)
 
 # write some stuff
-write.serialConnection(con,"Hello World!")
+write.serialConnection(con, "Hello World!")
 
 # read, in case something came in
 read.serialConnection(con)

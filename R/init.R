@@ -28,15 +28,11 @@
 #'        if \code{<translation>} is 'binary' and the stream is a file
 #' @param translation each transmitted string is terminated by the transmission
 #'       character. This could be 'lf', 'cr', 'crlf', or 'binary'
-#' @return An object of the class "\code{serialConnection}" is returned
+#' @return An object of the class "\code{serialConnection}" is returned.
 #' @export
-serialConnection <- function(name, port = "com1", 
-                             mode = "115200,n,8,1", 
-                             buffering = "none", 
-                             newline = 0,
-                             eof = "",
-                             translation = "lf",
-                             handshake= "none") {
+serialConnection <- function(name, port = "com1", mode = "115200,n,8,1", 
+                             buffering = "none", newline = 0, eof = "",
+                             translation = "lf", handshake= "none") {
   obj <- list()
   obj$name <- name
   obj$port <- port
@@ -81,7 +77,7 @@ open.serialConnection <- function(con, ...) {
               " -blocking 0", eof,
               " -translation ", con$translation,
               " -handshake ", con$handshake, sep = ""))
-  invisible("DONE")
+  NULL
   ## it seems that -eofchar doesn't work
   ## "buffering none" is recommended, other setings doesn't work to send 
 }
@@ -100,5 +96,5 @@ open.serialConnection <- function(con, ...) {
 #' @export
 close.serialConnection <- function(con, ...) {
   .Tcl(paste("close $sdev_", con$port, sep = ""))
-  invisible("DONE")
+  NULL
 }

@@ -12,13 +12,13 @@
 #'  \dontrun{write.serialConnection(con, "Hello World!")}
 #' @export
 write.serialConnection <- function(con, dat) {
-  nl <- "-nonewline "
-  if (con$newline) nl <- ""
-  .Tcl(paste("puts ", nl, "$sdev_", con$port, " \"", dat, "\"", sep=""))
+  
+  nl <- ifelse(con$newline, "", "-nonewline ")
+  .Tcl(paste("puts ", nl, "$sdev_", con$port, " \"", dat, "\"", sep = ""))
   
   #   ..," \"", dat,"\"",.. -> quotes dat in TCL String
   #   with out quoting space and control characters this will fail 
-  invisible("DONE")
+  NULL
 }
 
 #' Reads from the serial interface.
@@ -37,11 +37,10 @@ write.serialConnection <- function(con, dat) {
 #' @examples
 #'  # See the top package documentation
 #' @export
-read.serialConnection <- function(con)
-{
+read.serialConnection <- function(con) {
   res <- ""
   while(1) {
-    tmp <- tclvalue(.Tcl(paste("gets $sdev_", con$port, sep="")))
+    tmp <- tclvalue(.Tcl(paste("gets $sdev_", con$port, sep = "")))
     if (tmp == "") break
     res <- paste(res, tmp, sep = "")
   }
