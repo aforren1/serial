@@ -64,6 +64,8 @@ read.serialConnection <- function(con) {
 #' @usage check.devices()
 #' 
 #' @return A character vector with all active devices, or `character(0)` if no device is found.
+#' 
+#' @export
 check.devices <- function() {
   os <- .Platform$OS.type
   if (identical(os, "unix")) {

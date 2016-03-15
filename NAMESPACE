@@ -2,6 +2,7 @@
 
 S3method(close,serialConnection)
 S3method(open,serialConnection)
+export(check.devices)
 export(read.serialConnection)
 export(serialConnection)
 export(write.serialConnection)
