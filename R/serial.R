@@ -2,7 +2,7 @@
 #' 
 #' @param con serial connection
 #' @param dat data string to write on the serial interface. At the moment this 
-#'            must be a string \code{"..."}. See examle section in \code{\link{serial}}.
+#'            must be a string \code{"..."}. See the example section in \code{\link{serial}}.
 #' 
 #' @usage write.serialConnection(con, dat)
 #' @seealso \code{\link{serial}}
