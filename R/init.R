@@ -71,7 +71,7 @@ open.serialConnection <- function(con, ...) {
               " -blocking 0", eof,
               " -translation ", con$translation,
               " -handshake ", con$handshake, sep = ""))
-  NULL
+  invisible(NULL)
   ## it seems that -eofchar doesn't work
   ## "buffering none" is recommended, other setings doesn't work to send 
 }
@@ -91,5 +91,5 @@ open.serialConnection <- function(con, ...) {
 close.serialConnection <- function(con, ...) {
   stopifnot(is(con, 'serialConnection'))
   .Tcl(paste("close $sdev_", con$port, sep = ""))
-  NULL
+  invisible(NULL)
 }
