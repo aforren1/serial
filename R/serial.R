@@ -2,7 +2,7 @@
 #' 
 #' @param con serial connection
 #' @param dat data string to write on the serial interface. At the moment this 
-#'            must be a string \code{"..."}. See the example section in \code{\link{serial}}.
+#'            must be a character string \code{"..."}. See the example section in \code{\link{serial}}.
 #' 
 #' @usage write.serialConnection(con, dat)
 #' @seealso \code{\link{serial}}
@@ -12,7 +12,9 @@
 #'  \dontrun{write.serialConnection(con, "Hello World!")}
 #' @export
 write.serialConnection <- function(con, dat) {
-  stopifnot(is(con, 'serialConnection'))
+  # TODO: coerce dat to character with toString() (with warning?)
+  stopifnot(is(con, 'serialConnection'),
+            is(dat, 'character'))
   nl <- ifelse(con$newline, "", "-nonewline ")
   .Tcl(paste("puts ", nl, "$sdev_", con$port, " \"", dat, "\"", sep = ""))
   

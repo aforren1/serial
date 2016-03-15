@@ -10,7 +10,7 @@ write.serialConnection(con, dat)
 \item{con}{serial connection}
 
 \item{dat}{data string to write on the serial interface. At the moment this 
-must be a string \code{"..."}. See the example section in \code{\link{serial}}.}
+must be a character string \code{"..."}. See the example section in \code{\link{serial}}.}
 }
 \description{
 Writes data to serial interface.
