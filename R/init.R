@@ -1,8 +1,8 @@
 #' Sets up the interface parameters.
 #' 
 #' @param name  optional name for the connection
-#' @param port  comport name, should also work in Linux; also virtual com's are 
-#'              supported; maybe USB schould work too
+#' @param port  COM port name, should also work in Linux. Also, virtual COMs are 
+#'              supported -- USB should work too
 #' @param mode  communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}"
 #' \describe{
 #'    \item{\code{BAUD}}{sets the baud rate (bits per second)}
@@ -11,10 +11,10 @@
 #'    \item{\code{STOPBITS}}{integer number of stop bits. This can be "1" or "2"}
 #'        }       
 #'              
-#' @param buffering "\code{none}", for RS232 serial interface, other modes don't work in this case
-#' @param newline \code{<BOOL>}, whether a new transmission starts with a newline or not.
+#' @param buffering "\code{none}", for RS232 serial interface only; other modes don't work in this case
+#' @param newline \code{<BOOL>}, whether a new transmission starts with a newline or not
 #'                \describe{
-#'                  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} befor transmitting}
+#'                  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} before transmitting}
 #'                  \item{\code{FALSE} or 0}{no newline}
 #'                          }
 #' @param handshake determines the type of handshaking the communication
@@ -26,23 +26,28 @@
 #' 
 #' @param eof \code{<CHAR>}, termination char of the datastream. It only makes sense
 #'        if \code{<translation>} is 'binary' and the stream is a file
-#' @param translation  each transmitted string is terminated by the transmission
-#'       character. This could be 'lf', 'cr', 'crlf', 'binary'
+#' @param translation each transmitted string is terminated by the transmission
+#'       character. This could be 'lf', 'cr', 'crlf', or 'binary'
 #' @return An object of the class "\code{serialConnection}" is returned
 #' @export
-serialConnection<-function(name, port="com1", mode="115200,n,8,1", buffering="none", newline=0,eof="",translation="lf",handshake="none")
-{
-  obj<-list()
-  obj$name<-name
-  obj$port<-port
-  obj$mode<-mode
-  obj$buffering<-buffering
-  obj$newline<-newline
-  obj$eof<-eof
-  obj$translation<-translation
-  obj$handshake<-handshake
-  class(obj)<-"serialConnection"
-  return(obj)
+serialConnection <- function(name, port = "com1", 
+                             mode = "115200,n,8,1", 
+                             buffering = "none", 
+                             newline = 0,
+                             eof = "",
+                             translation = "lf",
+                             handshake= "none") {
+  obj <- list()
+  obj$name <- name
+  obj$port <- port
+  obj$mode <- mode
+  obj$buffering <- buffering
+  obj$newline <- newline
+  obj$eof <- eof
+  obj$translation <- translation
+  obj$handshake <- handshake
+  class(obj) <- "serialConnection"
+  obj
 }
 
 #' Function to initialize an serial interface.
@@ -56,36 +61,32 @@ serialConnection<-function(name, port="com1", mode="115200,n,8,1", buffering="no
 #' @seealso \code{\link{serialConnection}}
 #' @import tcltk
 #' @export
-open.serialConnection<-function(con, ...)
-{
-  ## set platform depended path
-  os_path <- switch(.Platform$OS.type
-                    ,windows = "//./"
-                    ,unix = "/dev/")
+open.serialConnection <- function(con, ...) {
+  ## set platform-dependent path
+  os_path <- switch(.Platform$OS.type,
+                    windows = "//./",
+                    unix = "/dev/")
   ## set connection and variables
-  try( .Tcl( paste("set sdev_",con$port," [open ",os_path,con$port," r+]",sep="")) )
-  ## '//./' defines the windows path for the com ports
+  .Tcl(paste("set sdev_", con$port," [open ", os_path, con$port, " r+]", sep = ""))
+  ## '//./' defines the Windows path for the COM ports
   ## only in this way it is possible to use virtual ports as well
-  ## the unix comports are located in '/dev/'
+  ## the unix COM ports are located in '/dev/'
   
-  ## setup configuration
-  eof <- paste(" -eofchar ", con$eof,sep="")
-  if(con$eof=="") eof=""
-  try( .Tcl( paste("fconfigure $sdev_",con$port
-              ," -mode ", con$mode
-              ," -buffering ",con$buffering
-              ," -blocking 0"
-              ,eof
-              ," -translation ",con$translation
-              ," -handshake ",con$handshake
-              ,sep=""))
-  )
+  ## set up configuration
+  eof <- ifelse(con$eof == "", "", paste(" -eofchar ", con$eof, sep = ""))
+  
+  .Tcl( paste("fconfigure $sdev_",con$port,
+              " -mode ", con$mode,
+              " -buffering ", con$buffering,
+              " -blocking 0", eof,
+              " -translation ", con$translation,
+              " -handshake ", con$handshake, sep = ""))
   invisible("DONE")
   ## it seems that -eofchar doesn't work
   ## "buffering none" is recommended, other setings doesn't work to send 
 }
 
-#' Function to close an serial interface.
+#' Function to close a serial interface.
 #' 
 #' This function closes the corresponding connection.
 #' 
@@ -97,8 +98,7 @@ open.serialConnection<-function(con, ...)
 #' @seealso \code{\link{serialConnection}}
 #' @import tcltk
 #' @export
-close.serialConnection<-function(con, ...)
-{
-  try(.Tcl(paste("close $sdev_",con$port,sep="")))
+close.serialConnection <- function(con, ...) {
+  .Tcl(paste("close $sdev_", con$port, sep = ""))
   invisible("DONE")
 }

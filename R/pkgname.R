@@ -2,7 +2,7 @@
 #' 
 #' This R package provides the functionality to use the serial communication ports
 #' "COM" to use RS232/RS422/RS485 functionality of the corresponding hardware.
-#' Also virtual COM-ports via USB do work, as long as they are mapped to COM[n] (Windows)
+#' Also virtual COM ports via USB do work, as long as they are mapped to COM[n] (Windows)
 #' or tty[n] (Mac/Linux) in the operating system.
 #' 
 #' @description
@@ -16,7 +16,7 @@
 #' @examples
 #' # For this example, I used the 'null-modem' emulator 'com0com' for Windows
 #' # which is available on 'http://com0com.sourceforge.net/'.
-#' # Here, the pair of com-ports is 'CNCA0' <-> 'CNCB0'.
+#' # Here, the pair of COM ports is 'CNCA0' <-> 'CNCB0'.
 #' 
 #' # Test the functionality:
 #' # ======================
@@ -26,12 +26,12 @@
 #' #        Hint: Some unix insist on port names like 'ttxS[n]'.
 #' # 
 #' # Second: Set up a terminal program (like HTerm or gtkterm) and listen to 
-#' #         com-port 'CNCB0' (or what ever you have installed)
+#' #         COM port 'CNCB0' (or what ever you have installed)
 #' #         or (for unix only) 'cat /dev/tnt1' will output tnt1 to the console.
 #' 
 #' \dontrun{
 #' 
-#' # Now configure one of the com-ports with appropriate connection properties
+#' # Now configure one of the COM ports with appropriate connection properties
 #' con <- serialConnection(name = "testcon", 
 #'                         port = "CNCA0",
 #'                         mode = "115200, n, 8, 1",
