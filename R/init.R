@@ -58,6 +58,7 @@ serialConnection <- function(name, port = "com1", mode = "115200,n,8,1",
 #' @import tcltk
 #' @export
 open.serialConnection <- function(con, ...) {
+  stopifnot(is(con, 'serialConnection'))
   ## set platform-dependent path
   os_path <- switch(.Platform$OS.type,
                     windows = "//./",
@@ -95,6 +96,7 @@ open.serialConnection <- function(con, ...) {
 #' @import tcltk
 #' @export
 close.serialConnection <- function(con, ...) {
+  stopifnot(is(con, 'serialConnection'))
   .Tcl(paste("close $sdev_", con$port, sep = ""))
   NULL
 }

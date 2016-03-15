@@ -12,7 +12,7 @@
 #'  \dontrun{write.serialConnection(con, "Hello World!")}
 #' @export
 write.serialConnection <- function(con, dat) {
-  
+  stopifnot(is(con, 'serialConnection'))
   nl <- ifelse(con$newline, "", "-nonewline ")
   .Tcl(paste("puts ", nl, "$sdev_", con$port, " \"", dat, "\"", sep = ""))
   
@@ -38,6 +38,7 @@ write.serialConnection <- function(con, dat) {
 #'  # See the top package documentation
 #' @export
 read.serialConnection <- function(con) {
+  stopifnot(is(con, 'serialConnection'))
   res <- ""
   while(1) {
     tmp <- tclvalue(.Tcl(paste("gets $sdev_", con$port, sep = "")))
