@@ -123,7 +123,6 @@ write_data.serialConnection <- function(con, dat, ...) {
   
   nl <- ifelse(con$newline, "", "-nonewline ")
   .Tcl(paste("puts ", nl, "$sdev_", con$port, " \"", dat, "\"", sep = ""))
-  
   #   ..," \"", dat,"\"",.. -> quotes dat in TCL String
   #   with out quoting space and control characters this will fail 
   invisible(NULL)
