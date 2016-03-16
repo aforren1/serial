@@ -7,7 +7,6 @@ cache: packages
 r:
   - release
   - devel
-apt_packages:
-  - xvfb
-  - xauth
-  - xfonts-base
+before_install:
+  - sudo Xvfb :10 -ac
+  - export DISPLAY=:10
