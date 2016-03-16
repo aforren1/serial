@@ -2,7 +2,6 @@
 #' @export 
 write_data.serialConnection <- function(con, dat, ...) {
   
-  stopifnot(is(con, 'serialConnection'))
   if (!is(dat, 'character')) {
     warning('dat is not a character, coercing to character with toString().')
     dat <- toString(dat)
@@ -17,8 +16,7 @@ write_data.serialConnection <- function(con, dat, ...) {
 }
 
 #' @export 
-read_data.serialConnection <- function(con) {
-  stopifnot(is(con, 'serialConnection'))
+read_data.serialConnection <- function(con, ...) {
   res <- ""
   while(1) {
     tmp <- tclvalue(.Tcl(paste("gets $sdev_", con$port, sep = "")))
@@ -28,14 +26,17 @@ read_data.serialConnection <- function(con) {
   res
 }
 
-#' Looks for active serial ports.
+#' Looks for serial ports in use.
 #' 
-#' This function checks for active serial ports on the host device.
+#' This function checks for serial ports in use on the host device.
 #' 
 #' @usage check_devices()
 #' 
 #' @return A character vector with all active devices, or `character(0)` if no device is found.
-#' 
+#' @examples
+#' \dontrun{
+#' available_devices <- check_devices()
+#' }
 #' @export
 check_devices <- function() {
   os <- ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 

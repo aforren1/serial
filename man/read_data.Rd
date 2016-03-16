@@ -8,21 +8,24 @@
 read_data(con, ...)
 }
 \arguments{
-\item{con}{serial connection}
+\item{con}{Object of class \code{serialConnection}}
 
-\item{...}{unused for now.}
+\item{...}{Currently ignored.}
 }
 \value{
-The result is a string, which can be converted to raw as necessary
+The result is a string, which can be converted to raw as necessary.
 }
 \description{
 This function reads from the serial interface as long as the buffer is not
 empty. The read takes place per byte.
 }
 \examples{
- # See the top package documentation
+# See the top package documentation for a complete example.
+\dontrun{
+data_in <- read_data(con)
+}
 }
 \seealso{
-\code{\link{serial}}
+\code{\link{serial}} \code{\link{write_data}}
 }
 

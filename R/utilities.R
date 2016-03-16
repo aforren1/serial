@@ -1,22 +1,24 @@
 # Utilities
 
-#' Writes data to serial interface. 
+#' Writes data to the serial interface. 
 #' 
-#' @param con serial connection
-#' @param dat data string to write on the serial interface. This can either
+#' @param con Object of class \code{serialConnection}
+#' @param dat Data string to write on the serial interface. This can either
 #'                be a character string or any R object that can be coerced
 #'                to a character string by the \code{\link{toString}} function,
 #'                though the latter occurs with a warning. 
 #'                See the example section in \code{\link{serial}}.
-#' @param ... unused for now.
+#' @param ... Currently ignored.
 #' @method write_data serialConnection
 #' @aliases write_data.serialConnection
 #' @usage write_data(con, dat, ...)
-#' @seealso \code{\link{serial}}
+#' @seealso \code{\link{serial}} \code{\link{read_data}}
 #' @examples
-#'  # See the top package documentation
+#'# See the top package documentation for a complete example.
 #'  
-#'  \dontrun{write_data(con, "Hello World!")}
+#'\dontrun{
+#'write_data(con, "Hello World!")
+#'}
 #' @method write_data serialConnection
 #' @export
 write_data <- function(con, dat, ...) UseMethod("write_data")
@@ -28,17 +30,20 @@ write_data <- function(con, dat, ...) UseMethod("write_data")
 #' 
 #' @method read_data serialConnection
 #' 
-#' @param con serial connection
-#' @param ... unused for now.
+#' @param con Object of class \code{serialConnection}
+#' @param ... Currently ignored.
 #' 
 #' @aliases read_data.serialConnection
 #' @usage read_data(con, ...)
 #' 
-#' @return The result is a string, which can be converted to raw as necessary
+#' @return The result is a string, which can be converted to raw as necessary.
 
-#' @seealso \code{\link{serial}}
+#' @seealso \code{\link{serial}} \code{\link{write_data}}
 #' @examples
-#'  # See the top package documentation
+#'# See the top package documentation for a complete example.
+#'\dontrun{
+#'data_in <- read_data(con)
+#'}
 #' @method read_data serialConnection
 #' @export
 read_data <- function(con, ...) UseMethod("read_data")

@@ -3,30 +3,32 @@
 \name{write_data}
 \alias{write_data}
 \alias{write_data.serialConnection}
-\title{Writes data to serial interface.}
+\title{Writes data to the serial interface.}
 \usage{
 write_data(con, dat, ...)
 }
 \arguments{
-\item{con}{serial connection}
+\item{con}{Object of class \code{serialConnection}}
 
-\item{dat}{data string to write on the serial interface. This can either
+\item{dat}{Data string to write on the serial interface. This can either
 be a character string or any R object that can be coerced
 to a character string by the \code{\link{toString}} function,
 though the latter occurs with a warning. 
 See the example section in \code{\link{serial}}.}
 
-\item{...}{unused for now.}
+\item{...}{Currently ignored.}
 }
 \description{
-Writes data to serial interface.
+Writes data to the serial interface.
 }
 \examples{
- # See the top package documentation
+# See the top package documentation for a complete example.
  
- \dontrun{write_data(con, "Hello World!")}
+\dontrun{
+write_data(con, "Hello World!")
+}
 }
 \seealso{
-\code{\link{serial}}
+\code{\link{serial}} \code{\link{read_data}}
 }
 

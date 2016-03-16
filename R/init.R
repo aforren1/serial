@@ -1,8 +1,7 @@
 #' Sets up the interface parameters.
 #' 
-#' @param name  optional name for the connection
 #' @param port  COM port name, should also work in Linux. Also, virtual COMs are 
-#'              supported -- USB should work too
+#'              supported -- USB should work too.
 #' @param mode  communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}"
 #' \describe{
 #'    \item{\code{BAUD}}{sets the baud rate (bits per second)}
@@ -30,7 +29,7 @@
 #'       character. This could be 'lf', 'cr', 'crlf', or 'binary'
 #' @return An object of the class "\code{serialConnection}" is returned.
 #' @export
-serialConnection <- function(name, port = "com1", mode = "115200, n, 8, 1", 
+serialConnection <- function(port = "com1", mode = "115200, n, 8, 1", 
                              buffering = "none", newline = 0, eof = "",
                              translation = "lf", handshake= "none") {
 
@@ -44,10 +43,16 @@ serialConnection <- function(name, port = "com1", mode = "115200, n, 8, 1",
 #' This function initializes the serial interface and opens it for later usage. 
 #' 
 #' @method open serialConnection
+#' @aliases open
 #' 
-#' @param con serial connection
-#' @param ... is ignored
-#' @seealso \code{\link{serialConnection}}
+#' @param con Object of class \code{serialConnection}.
+#' @param ... Currently ignored.
+#' @seealso \code{\link{serialConnection}} \code{\link{close}} \code{\link{read_data}}
+#' @examples
+#' \dontrun{
+#' con <- serialConnection(port = 'com5')
+#' open(con)
+#' }
 #' @import tcltk
 #' @export
 open.serialConnection <- function(con, ...) {
@@ -81,11 +86,16 @@ open.serialConnection <- function(con, ...) {
 #' This function closes the corresponding connection.
 #' 
 #' @method close serialConnection
+#' @aliases close
+#' @param con Object of class \code{serialConnection}.
+#' @param ... Currently ignored.
 #' 
-#' @param con serial connection
-#' @param ... is ignored
+#' @examples
+#' \dontrun{
+#' close(con)
+#' }
 #' 
-#' @seealso \code{\link{serialConnection}}
+#' @seealso \code{\link{serialConnection}} \code{\link{open}}
 #' @import tcltk
 #' @export
 close.serialConnection <- function(con, ...) {

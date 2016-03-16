@@ -7,11 +7,12 @@
 #' 
 #' @description
 #' \describe{
-#'  \item{\code{open}}{opens a serial connection}
-#'  \item{\code{close}}{closes the serial connection}
-#'  \item{\code{read_data}}{bytewise read from the interface as long as the buffer is empty}
-#'  \item{\code{write_data}}{writes a string to the serial interface}
-#'  \item{\code{check_devices}}{helper function to find available serial connections}
+#'  \item{\code{\link{serialConnection}}}{Creates a \code{serialConnection} object}
+#'  \item{\code{\link{open}}}{opens a serial connection}
+#'  \item{\code{\link{close}}}{closes the serial connection}
+#'  \item{\code{\link{read_data}}}{bytewise read from the interface as long as the buffer is empty}
+#'  \item{\code{\link{write_data}}}{writes a string to the serial interface}
+#'  \item{\code{\link{check_devices}}}{helper function to find available serial devices}
 #' }
 #' 
 #' @examples
@@ -33,8 +34,7 @@
 #' \dontrun{
 #' 
 #' # Now configure one of the COM ports with appropriate connection properties
-#' con <- serialConnection(name = "testcon", 
-#'                         port = "CNCA0",
+#' con <- serialConnection(port = "CNCA0",
 #'                         mode = "115200, n, 8, 1",
 #'                         newline = 1,
 #'                         translation = "crlf")

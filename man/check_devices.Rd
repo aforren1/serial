@@ -2,7 +2,7 @@
 % Please edit documentation in R/serial.R
 \name{check_devices}
 \alias{check_devices}
-\title{Looks for active serial ports.}
+\title{Looks for serial ports in use.}
 \usage{
 check_devices()
 }
@@ -10,6 +10,11 @@ check_devices()
 A character vector with all active devices, or `character(0)` if no device is found.
 }
 \description{
-This function checks for active serial ports on the host device.
+This function checks for serial ports in use on the host device.
+}
+\examples{
+\dontrun{
+available_devices <- check_devices()
+}
 }
 

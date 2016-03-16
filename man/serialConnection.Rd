@@ -4,13 +4,11 @@
 \alias{serialConnection}
 \title{Sets up the interface parameters.}
 \usage{
-serialConnection(name, port = "com1", mode = "115200, n, 8, 1",
+serialConnection(port = "com1", mode = "115200, n, 8, 1",
   buffering = "none", newline = 0, eof = "", translation = "lf",
   handshake = "none")
 }
 \arguments{
-\item{name}{optional name for the connection}
-
 \item{port}{COM port name, should also work in Linux. Also, virtual COMs are 
 supported -- USB should work too}
 
