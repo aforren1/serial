@@ -15,7 +15,7 @@
 #' @export
 check_devices <- function() {
   os <- ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 
-               ifelse(grep('linux', R.version$platform), 'linux', 'osx'))
+               ifelse(grepl('linux', R.version$platform), 'linux', 'osx'))
   
   if (identical(os, "linux")) {
     if (file_test("-d", "/dev/serial/by-id")) { # only exists when device connected
