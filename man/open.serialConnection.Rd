@@ -22,6 +22,6 @@ open(con)
 }
 }
 \seealso{
-\code{\link{serialConnection}} \code{\link{close}} \code{\link{read_data}}
+\code{\link{serialConnection}} \code{\link{close}}
 }
 

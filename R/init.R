@@ -47,7 +47,7 @@ serialConnection <- function(port = "com1", mode = "115200, n, 8, 1",
 #' 
 #' @param con Object of class \code{serialConnection}.
 #' @param ... Currently ignored.
-#' @seealso \code{\link{serialConnection}} \code{\link{close}} \code{\link{read_data}}
+#' @seealso \code{\link{serialConnection}} \code{\link{close}}
 #' @examples
 #' \dontrun{
 #' con <- serialConnection(port = 'com5')

@@ -10,7 +10,7 @@ serialConnection(port = "com1", mode = "115200, n, 8, 1",
 }
 \arguments{
 \item{port}{COM port name, should also work in Linux. Also, virtual COMs are 
-supported -- USB should work too}
+supported -- USB should work too.}
 
 \item{mode}{communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}"
 \describe{
