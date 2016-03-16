@@ -26,6 +26,7 @@ Writes data to the serial interface.
  
 \dontrun{
 write_data(con, "Hello World!")
+write_data(con, 2) # coerce with warning
 }
 }
 \seealso{
