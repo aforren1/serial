@@ -1,4 +1,3 @@
-
 #' @export 
 write_data.serialConnection <- function(con, dat, ...) {
   
@@ -37,6 +36,7 @@ read_data.serialConnection <- function(con, ...) {
 #' \dontrun{
 #' available_devices <- check_devices()
 #' }
+#' @importFrom utils file_test
 #' @export
 check_devices <- function() {
   os <- ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 

@@ -1,7 +1,6 @@
 language: r
+warnings_are_errors: false
 sudo : true
 r:
   - release
   - devel
-r_packages: 
-  - tcltk
