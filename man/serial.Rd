@@ -9,8 +9,9 @@
 \describe{
  \item{\code{open}}{opens a serial connection}
  \item{\code{close}}{closes the serial connection}
- \item{\code{read.serialConnection}}{bytewise read from the interface as long as the buffer is empty}
- \item{\code{write.serialConnection}}{writes a string to the serial interface}
+ \item{\code{read_data}}{bytewise read from the interface as long as the buffer is empty}
+ \item{\code{write_data}}{writes a string to the serial interface}
+ \item{\code{check_devices}}{helper function to find available serial connections}
 }
 }
 \details{
@@ -49,10 +50,10 @@ con <- serialConnection(name = "testcon",
 open(con)
 
 # write some stuff
-write.serialConnection(con, "Hello World!")
+write_data(con, "Hello World!")
 
 # read, in case something came in
-read.serialConnection(con)
+read_data(con)
 
 # close the connection
 close(con)

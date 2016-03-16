@@ -2,8 +2,8 @@
 
 S3method(close,serialConnection)
 S3method(open,serialConnection)
-export(check.devices)
-export(read.serialConnection)
+S3method(read_data,serialConnection)
+S3method(write_data,serialConnection)
+export(check_devices)
 export(serialConnection)
-export(write.serialConnection)
 import(tcltk)
