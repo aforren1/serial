@@ -1,9 +1,9 @@
 language: r
+sudo : true
 r:
   - oldrel
   - release
   - devel
-cache: packages
 r_packages: 
   - tcltk
 apt_packages:
