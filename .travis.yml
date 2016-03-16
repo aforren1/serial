@@ -1,10 +1,7 @@
 language: r
 sudo : true
 r:
-  - oldrel
   - release
   - devel
 r_packages: 
   - tcltk
-apt_packages:
-  - tk8.6
