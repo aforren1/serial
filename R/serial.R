@@ -41,6 +41,7 @@ read_data.serialConnection <- function(con, ...) {
 check_devices <- function() {
   os <- ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 
                ifelse(grep('linux', R.version$platform), 'linux', 'osx'))
+  
   if (identical(os, "linux")) {
     if (file_test("-d", "/dev/serial/by-id")) { # only exists when device connected
       # check symbolic links
@@ -50,14 +51,20 @@ check_devices <- function() {
     } else {
       character(0)
     }
-  } else if (identical(os, "windows")) {
+  } 
+  
+  else if (identical(os, "windows")) {
     cmmd <- 'REG QUERY HKEY_LOCAL_MACHINE\\HARDWARE\\DEVICEMAP\\SERIALCOMM'
     dev_info <- system(cmmd, intern = TRUE)
     regmatches(dev_info, regexpr('(?:COM)[0-9]{1,3}', text = dev_info))
-  } else if (identical(os, "osx")) {
+  } 
+  
+  else if (identical(os, "osx")) {
     dev_info <- system('ls /dev/tty.*', intern = TRUE)
     regmatches(dev_info, regexpr("(?:tty).*", text = dev_info))
-  } else {
+  } 
+  
+  else {
     stop("Unidentified platform.")
   }
 }

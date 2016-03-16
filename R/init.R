@@ -32,7 +32,7 @@
 serialConnection <- function(port = "com1", mode = "115200, n, 8, 1", 
                              buffering = "none", newline = 0, eof = "",
                              translation = "lf", handshake= "none") {
-
+  
   obj <- as.list(environment())
   class(obj) <- "serialConnection"
   obj
