@@ -15,3 +15,4 @@ Packaged: 2016-02-11 06:37:12 UTC; ms5760
 NeedsCompilation: no
 Repository: CRAN
 Date/Publication: 2016-02-11 08:52:54
+Suggests: testthat

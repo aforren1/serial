@@ -117,8 +117,8 @@ read_data.serialConnection <- function(con, ...) {
 write_data.serialConnection <- function(con, dat, ...) {
   
   if (!is(dat, 'character')) {
-    warning('dat is not a character, coercing to character with toString().')
-    dat <- toString(dat)
+    warning('dat is not a character, coercing to character with paste().')
+    dat <- paste(dat)
   }
   
   nl <- ifelse(con$newline, "", "-nonewline ")
