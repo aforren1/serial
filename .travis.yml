@@ -1,4 +1,7 @@
 language: r
+os:
+  - linux
+  - osx
 warnings_are_errors: false
 notifications:
   email: false
