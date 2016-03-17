@@ -12,7 +12,7 @@
  \item{\code{\link{close}}}{closes the serial connection}
  \item{\code{\link{read_data}}}{bytewise read from the interface as long as the buffer is empty}
  \item{\code{\link{write_data}}}{writes a string to the serial interface}
- \item{\code{\link{check_devices}}}{helper function to find available serial devices}
+ \item{\code{\link{find_devices}}}{helper function to find available serial devices}
 }
 }
 \details{

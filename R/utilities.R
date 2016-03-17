@@ -4,16 +4,16 @@
 #' 
 #' This function checks for serial ports in use on the host device.
 #' 
-#' @usage check_devices()
+#' @usage find_devices()
 #' 
 #' @return A character vector with all active devices, or `character(0)` if no device is found.
 #' @examples
 #' \dontrun{
-#' available_devices <- check_devices()
+#' available_devices <- find_devices()
 #' }
 #' @importFrom utils file_test
 #' @export
-check_devices <- function() {
+find_devices <- function() {
   os <- ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 
                ifelse(grepl('linux', R.version$platform), 'linux', 'osx'))
   
