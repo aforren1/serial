@@ -102,6 +102,8 @@ close.serialConnection <- function(con, ...) {
   invisible(NULL)
 }
 
+#' @aliases read_data
+#' @rdname read_data
 #' @export 
 read_data.serialConnection <- function(con, ...) {
   res <- ""
@@ -113,6 +115,8 @@ read_data.serialConnection <- function(con, ...) {
   res
 }
 
+#' @aliases write_data
+#' @rdname write_data
 #' @export 
 write_data.serialConnection <- function(con, dat, ...) {
   
