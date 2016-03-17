@@ -4,9 +4,8 @@
 \alias{serialConnection}
 \title{Sets up the interface parameters.}
 \usage{
-serialConnection(port = "com1", mode = "115200, n, 8, 1",
-  buffering = "none", newline = 0, eof = "", translation = "lf",
-  handshake = "none")
+serialConnection(port = "com1", mode = "115200,n,8,1", buffering = "none",
+  newline = 0, eof = "", translation = "lf", handshake = "none")
 }
 \arguments{
 \item{port}{COM port name, should also work in Linux. Also, virtual COMs are 

@@ -29,7 +29,7 @@
 #'       character. This could be 'lf', 'cr', 'crlf', or 'binary'
 #' @return An object of the class "\code{serialConnection}" is returned.
 #' @export
-serialConnection <- function(port = "com1", mode = "115200, n, 8, 1", 
+serialConnection <- function(port = "com1", mode = "115200,n,8,1", 
                              buffering = "none", newline = 0, eof = "",
                              translation = "lf", handshake= "none") {
   
