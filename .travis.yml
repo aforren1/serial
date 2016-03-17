@@ -6,7 +6,8 @@ sudo : true
 r:
   - release
   - devel
-apt_packages: git
+apt_packages: 
+  - git
 before_install:
   - sudo /usr/bin/Xvfb :99 -ac -screen 0 1024x768x8 &>/dev/null & export DISPLAY=":99" &>/dev/null
   - git clone https://github.com/freemed/tty0tty.git
