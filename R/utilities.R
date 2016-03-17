@@ -14,10 +14,8 @@
 #' @importFrom utils file_test
 #' @export
 find_devices <- function() {
-  os <- ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 
-               ifelse(grepl('linux', R.version$platform), 'linux', 'osx'))
-  
-  if (identical(os, "linux")) {
+  os <- get_os()
+  if (identical(os, "unix")) {
     if (file_test("-d", "/dev/serial/by-id")) { # only exists when device connected
       # check symbolic links
       cmmd <- 'ls -l /dev/serial/by-id | grep "\\->"'
@@ -34,7 +32,7 @@ find_devices <- function() {
     regmatches(dev_info, regexpr('(?:COM)[0-9]{1,3}', text = dev_info))
   } 
   
-  else if (identical(os, "osx")) {
+  else if (identical(os, "mac")) {
     dev_info <- system('ls /dev/tty.*', intern = TRUE)
     regmatches(dev_info, regexpr("(?:tty).*", text = dev_info))
   } 
@@ -44,3 +42,15 @@ find_devices <- function() {
   }
 }
 
+# from https://github.com/hadley/rappdirs
+get_os <- function() {
+  if (.Platform$OS.type == "windows") { 
+    "win"
+  } else if (Sys.info()["sysname"] == "Darwin") {
+    "mac" 
+  } else if (.Platform$OS.type == "unix") { 
+    "unix"
+  } else {
+    stop("Unknown OS")
+  }
+}
