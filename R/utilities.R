@@ -15,7 +15,7 @@
 #' @export
 find_devices <- function() {
   os <- get_os()
-  if (identical(os, "unix")) {
+  if (identical(os, "linux")) {
     if (file_test("-d", "/dev/serial/by-id")) { # dir only exists when device connected
       # check symbolic links
       cmmd <- 'ls -l /dev/serial/by-id | grep "\\->"'
@@ -42,14 +42,14 @@ find_devices <- function() {
   }
 }
 
-# from https://github.com/hadley/rappdirs
+# modified from https://github.com/hadley/rappdirs (MIT License, attribute!)
 get_os <- function() {
   if (.Platform$OS.type == "windows") { 
     "win"
   } else if (Sys.info()["sysname"] == "Darwin") {
     "mac" 
   } else if (.Platform$OS.type == "unix") { 
-    "unix"
+    "linux" # maybe not correct, as this could catch solaris?
   } else {
     stop("Unknown OS")
   }

@@ -16,4 +16,4 @@ Changes since 1.1:
     tcltk installations.
 - Started to add unit tests using `testthat`.
 - Various spelling and grammatical corrections, and documentation improvements.
-- Import methods and tcltk.
+- Import methods, utils, and tcltk.
