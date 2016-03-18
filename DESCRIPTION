@@ -16,3 +16,4 @@ NeedsCompilation: no
 Repository: CRAN
 Date/Publication: 2016-02-11 08:52:54
 Suggests: testthat
+Imports: methods

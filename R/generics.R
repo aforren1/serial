@@ -38,6 +38,7 @@ write_data <- function(con, dat, ...) UseMethod("write_data")
 #'\dontrun{
 #'data_in <- read_data(con)
 #'}
+#' @importFrom methods is
 #' @export
 read_data <- function(con, ...) UseMethod("read_data")
 
