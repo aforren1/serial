@@ -1,19 +1,17 @@
 Package: serial
-Type: Package
 Title: The Serial Interface Package
 Version: 1.1.9
-Date: 2016-02-04
-Author: Martin Seilmayer, Alexander Forrence
-Maintainer: Martin Seilmayer <m.seilmayer@hzdr.de>
+Date: 2016-03-18
+Authors@R: c(person("Martin", "Seilmayer", email = "m.seilmayer@hzdr.de",
+  role = c("aut", "cre")),
+  person("Alexander", "Forrence", email = "aforren1@jhmi.edu", role = "aut"))
 Description: Provides functionality for the use of the internal hardware
              RS232/RS422/RS485 or any other virtual serial interfaces of the
              computer.
 Depends: R (>= 2.15.0)
+Imports: tcltk, methods, utils
+Suggests: testthat
 License: GPL-2
 RoxygenNote: 5.0.1
-Packaged: 2016-02-11 06:37:12 UTC; ms5760
 NeedsCompilation: no
-Repository: CRAN
-Date/Publication: 2016-02-11 08:52:54
-Suggests: testthat
-Imports: methods
+

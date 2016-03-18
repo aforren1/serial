@@ -53,7 +53,7 @@ serialConnection <- function(port = "com1", mode = "115200,n,8,1",
 #' con <- serialConnection(port = 'com5')
 #' open(con)
 #' }
-#' @import tcltk
+#' @importFrom tcltk .Tcl
 #' @export
 open.serialConnection <- function(con, ...) {
   ## set platform-dependent path
@@ -95,13 +95,14 @@ open.serialConnection <- function(con, ...) {
 #' }
 #' 
 #' @seealso \code{\link{serialConnection}} \code{\link{open}}
-#' @import tcltk
+#' @importFrom tcltk .Tcl
 #' @export
 close.serialConnection <- function(con, ...) {
   .Tcl(paste("close $sdev_", con$port, sep = ""))
   invisible(NULL)
 }
 
+#' @importFrom tcltk .Tcl tclvalue
 #' @export 
 read_data.serialConnection <- function(con, ...) {
   res <- ""
@@ -113,6 +114,7 @@ read_data.serialConnection <- function(con, ...) {
   res
 }
 
+#' @importFrom tcltk .Tcl
 #' @export 
 write_data.serialConnection <- function(con, dat, ...) {
   
