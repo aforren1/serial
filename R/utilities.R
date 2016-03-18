@@ -26,7 +26,7 @@ find_devices <- function() {
     }
   } 
   
-  else if (identical(os, "windows")) {
+  else if (identical(os, "win")) {
     cmmd <- 'REG QUERY HKEY_LOCAL_MACHINE\\HARDWARE\\DEVICEMAP\\SERIALCOMM'
     dev_info <- system(cmmd, intern = TRUE)
     regmatches(dev_info, regexpr('(?:COM)[0-9]{1,3}', text = dev_info))
