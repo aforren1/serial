@@ -1,9 +1,12 @@
 Changes since 1.1:
 
 - Removed `try()` calls in functions to allow easier error handling by the user.
+- Removed the `name` argument to `serialConnection()`, because it wasn't optional
+    as implied by the help file and didn't seem to serve any purpose.
 - Deprecated `read.serialConnection` and `write.serialConnection` for 
-    `read_data` and `write_data` generics, and associated "serialConnection" methods. 
-    This standardizes the different functions that can act on these objects.
+    `read_data` and `write_data` generics, and associated "serialConnection" 
+    methods. This standardizes the different functions that can act on 
+    these objects.
 - Reorganized *.R files.
 - Added `find_devices()` helper function, which should show active serial devices on
     OSX, Linux, and Windows.
@@ -11,4 +14,4 @@ Changes since 1.1:
 - Added `.onAttach` to attempt to catch older OSX installations with incomplete
     tcltk installations.
 - Started to add unit tests using `testthat`.
-- Various spelling and grammatical corrections.
+- Various spelling and grammatical corrections, and documentation improvements.

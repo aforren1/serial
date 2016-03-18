@@ -34,7 +34,7 @@
 #' \dontrun{
 #' 
 #' # Now configure one of the COM ports with appropriate connection properties
-#' con <- serialConnection(port = "CNCA0",
+#' con <- serialConnection(port = "CNCA0", # or "tnt0" on linux
 #'                         mode = "115200,n,8,1",
 #'                         newline = 1,
 #'                         translation = "crlf")
