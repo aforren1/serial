@@ -16,7 +16,7 @@
 find_devices <- function() {
   os <- get_os()
   if (identical(os, "unix")) {
-    if (file_test("-d", "/dev/serial/by-id")) { # only exists when device connected
+    if (file_test("-d", "/dev/serial/by-id")) { # dir only exists when device connected
       # check symbolic links
       cmmd <- 'ls -l /dev/serial/by-id | grep "\\->"'
       dev_info <- system(cmmd, intern = TRUE)

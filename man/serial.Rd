@@ -26,6 +26,9 @@ or tty[n] (Mac/Linux) in the operating system.
 # which is available on 'http://com0com.sourceforge.net/'.
 # Here, the pair of COM ports is 'CNCA0' <-> 'CNCB0'.
 
+# For Linux, 'tty0tty' and installation instructions are available on
+# 'https://github.com/freemed/tty0tty'. The pair of COM ports is 'tnt0' <-> 'tnt1'.
+
 # Test the functionality:
 # ======================
 #
@@ -46,7 +49,6 @@ con <- serialConnection(port = "CNCA0", # or "tnt0" on linux
                         translation = "crlf")
 
 # Let's open the serial interface.
-
 open(con)
 
 # write some stuff
