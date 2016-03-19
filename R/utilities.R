@@ -32,7 +32,7 @@ find_devices <- function() {
     regmatches(dev_info, regexpr('(?:COM)[0-9]{1,3}', text = dev_info))
   } 
   
-  else if (identical(os, "mac")) {
+  else if (identical(os, "osx")) {
     dev_info <- system('ls /dev/tty.*', intern = TRUE)
     regmatches(dev_info, regexpr("(?:tty).*|(?:cu).*", text = dev_info))
   } 
@@ -42,15 +42,7 @@ find_devices <- function() {
   }
 }
 
-# modified from https://github.com/hadley/rappdirs (MIT License, attribute!)
 get_os <- function() {
-  if (.Platform$OS.type == "windows") { 
-    "win"
-  } else if (Sys.info()["sysname"] == "Darwin") {
-    "mac" 
-  } else if (.Platform$OS.type == "unix") { 
-    "linux" # maybe not correct, as this could catch solaris?
-  } else {
-    stop("Unknown OS")
-  }
+  ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 
+               ifelse(grepl("darwin", R.version$os), 'osx', 'linux'))
 }
