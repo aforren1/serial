@@ -74,7 +74,8 @@ open.serialConnection <- function(con, ...) {
               " -buffering ", con$buffering,
               " -blocking 0", eof,
               " -translation ", con$translation,
-              " -handshake ", con$handshake, sep = ""))
+              " -handshake ", con$handshake,
+              " -timeout ", 5000, sep = ""))
   invisible(NULL)
   ## it seems that -eofchar doesn't work
   ## "buffering none" is recommended, other setings doesn't work to send 

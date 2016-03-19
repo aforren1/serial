@@ -17,3 +17,5 @@ Changes since 1.1:
 - Started to add unit tests using `testthat`.
 - Various spelling and grammatical corrections, and documentation improvements.
 - Import methods, utils, and tcltk.
+- Added '-timeout 5000' to `.Tcl` call in `open.serialConnection`. I had an issue
+    with OSX hanging and wanted to see if that was the issue.

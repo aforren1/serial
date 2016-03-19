@@ -34,7 +34,7 @@ find_devices <- function() {
   
   else if (identical(os, "mac")) {
     dev_info <- system('ls /dev/tty.*', intern = TRUE)
-    regmatches(dev_info, regexpr("(?:tty).*", text = dev_info))
+    regmatches(dev_info, regexpr("(?:tty).*|(?:cu).*", text = dev_info))
   } 
   
   else {
