@@ -1,7 +1,7 @@
 library(serial)
 context("Accessibility")
-err_msg1 <- paste("[tcl] couldn\'t open ", '"', "/dev/com1", '":', " no such file or directory.\n", sep = "")
-err_msg2 <- paste("[tcl] can\'t read ", '"',"sdev com1", '":', " no such variable.", sep = "")
+#err_msg1 <- paste("[tcl] couldn\'t open ", '"', "/dev/com1", '":', " no such file or directory.\n", sep = "")
+#err_msg2 <- paste("[tcl] can\'t read ", '"',"sdev com1", '":', " no such variable.", sep = "")
 con <- serialConnection('com40')
 test_that("all functions are accessible", {
   expect_error(open(con))

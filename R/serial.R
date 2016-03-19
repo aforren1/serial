@@ -71,7 +71,7 @@ open.serialConnection <- function(con, ...) {
   ## set up configuration
   eof <- ifelse(con$eof == "", "", paste(" -eofchar ", con$eof, sep = ""))
   
-  .Tcl( paste("fconfigure $sdev_",con$port,
+  .Tcl(paste("fconfigure $sdev_",con$port,
               " -mode ", con$mode,
               " -buffering ", con$buffering,
               " -blocking 0", eof,
