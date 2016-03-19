@@ -19,3 +19,5 @@ Changes since 1.1:
 - Import methods, utils, and tcltk.
 - Added '-timeout 5000' to `.Tcl` call in `open.serialConnection`. I had an issue
     with OSX hanging and wanted to see if that was the issue.
+- Added 'cu*' regex to `find_devices()`, as it seems some people have better success
+    with that prefix on OSX.
