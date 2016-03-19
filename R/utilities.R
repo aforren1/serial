@@ -43,6 +43,6 @@ find_devices <- function() {
 }
 
 get_os <- function() {
-  ifelse(identical(.Platform$OS.type, 'windows'), 'windows', 
+  ifelse(identical(.Platform$OS.type, 'windows'), 'win', 
                ifelse(grepl("darwin", R.version$os), 'osx', 'linux'))
 }
