@@ -42,8 +42,9 @@ serialConnection <- function(port = "com1", mode = "115200,n,8,1",
 #' 
 #' This function initializes the serial interface and opens it for later usage. 
 #' 
+#' @name open
 #' @method open serialConnection
-#' @aliases open
+#' @aliases open open.serialConnection
 #' 
 #' @param con Object of class \code{serialConnection}.
 #' @param ... Currently ignored.
@@ -85,8 +86,9 @@ open.serialConnection <- function(con, ...) {
 #' 
 #' This function closes the corresponding connection.
 #' 
+#' @name close
 #' @method close serialConnection
-#' @aliases close
+#' @aliases close close.serialConnection
 #' @param con Object of class \code{serialConnection}.
 #' @param ... Currently ignored.
 #' 
@@ -103,6 +105,25 @@ close.serialConnection <- function(con, ...) {
   invisible(NULL)
 }
 
+
+#' Reads from the serial interface.
+#' 
+#' This function reads from the serial interface as long as the buffer is not
+#' empty. The read takes place per byte.
+#' 
+#' @name read_data
+#' @param con Object of class \code{serialConnection}
+#' @param ... Currently ignored.
+#' 
+#' @aliases read_data read.serialConnection read_data.serialConnection
+#' 
+#' @return The result is a string, which can be converted to raw as necessary.
+#' @seealso \code{\link{serial}} \code{\link{write_data}}
+#' @examples
+#'# See the top package documentation for a complete example.
+#'\dontrun{
+#'data_in <- read_data(con)
+#'}
 #' @importFrom tcltk .Tcl tclvalue
 #' @export 
 read_data.serialConnection <- function(con, ...) {
@@ -115,6 +136,27 @@ read_data.serialConnection <- function(con, ...) {
   res
 }
 
+
+#' Writes data to the serial interface. 
+#' 
+#' @name write_data
+#' @param con Object of class \code{serialConnection}
+#' @param dat Data string to write on the serial interface. This can either
+#'                be a character string or any R object that can be coerced
+#'                to a character string by the \code{\link{paste}} function,
+#'                though the latter occurs with a warning. 
+#'                See the example section in \code{\link{serial}}.
+#' @param ... Currently ignored.
+#' @aliases write_data write.serialConnection write_data.serialConnection
+#' @seealso \code{\link{serial}} \code{\link{read_data}}
+#' @examples
+#'# See the top package documentation for a complete example.
+#'  
+#'\dontrun{
+#'write_data(con, "Hello World!")
+#'write_data(con, 2) # coerce with warning
+#'}
+#' @importFrom methods is
 #' @importFrom tcltk .Tcl
 #' @export 
 write_data.serialConnection <- function(con, dat, ...) {
