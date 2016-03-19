@@ -1,33 +1,34 @@
 #' Sets up the interface parameters.
 #' 
-#' @param port  COM port name, should also work in Linux. Also, virtual COMs are 
-#'              supported -- USB should work too.
-#' @param mode  communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}"
+#' @param port  the COM port name, should also work in Linux. Also, virtual COMs are 
+#'              supported, meaning USB should work too.
+#' @param mode  the communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}".
 #' \describe{
-#'    \item{\code{BAUD}}{sets the baud rate (bits per second)}
-#'    \item{\code{PARITY}}{\emph{n, o, e, m, s} stands for "none", "odd", "even", "mark" and "space"}
-#'    \item{\code{DATABITS}}{integer number of data bits. The value can range from 5 to 8}
-#'    \item{\code{STOPBITS}}{integer number of stop bits. This can be "1" or "2"}
+#'    \item{\code{BAUD}}{sets the baud rate (bits per second).}
+#'    \item{\code{PARITY}}{\emph{n, o, e, m, s} stands for "none", "odd", "even", "mark" and "space".}
+#'    \item{\code{DATABITS}}{integer number of data bits. The value can range from 5 to 8.}
+#'    \item{\code{STOPBITS}}{integer number of stop bits. This can be "1" or "2".}
 #'        }       
 #'              
-#' @param buffering "\code{none}", for RS232 serial interface only; other modes don't work in this case
-#' @param newline \code{<BOOL>}, whether a new transmission starts with a newline or not
+#' @param buffering "\code{none}", for RS232 serial interface only; other modes don't work in this case.
+#' @param newline \code{<BOOL>}, whether a new transmission starts with a newline or not.
 #'                \describe{
-#'                  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} before transmitting}
-#'                  \item{\code{FALSE} or 0}{no newline}
+#'                  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} before transmitting.}
+#'                  \item{\code{FALSE} or 0}{no newline.}
 #'                          }
-#' @param handshake determines the type of handshaking the communication
+#' @param handshake determines the type of handshaking the communication.
 #'                  \describe{
-#'                    \item{"\code{none}"}{no handshake is done}
-#'                    \item{"\code{rtscts}"}{hardware handshake is enabled}
-#'                    \item{"\code{xonxoff}"}{software handshake via extra characters is enabled}
+#'                    \item{"\code{none}"}{no handshake is done.}
+#'                    \item{"\code{rtscts}"}{hardware handshake is enabled.}
+#'                    \item{"\code{xonxoff}"}{software handshake via extra characters is enabled.}
 #'                    }
 #' 
 #' @param eof \code{<CHAR>}, termination char of the datastream. It only makes sense
-#'        if \code{<translation>} is 'binary' and the stream is a file
+#'        if \code{<translation>} is "binary" and the stream is a file.
 #' @param translation each transmitted string is terminated by the transmission
-#'       character. This could be 'lf', 'cr', 'crlf', or 'binary'
+#'       character. This could be "lf", "cr", "crlf", or "binary".
 #' @return An object of the class "\code{serialConnection}" is returned.
+#' @seealso \code{\link{serial}} \code{\link{open}} \code{\link{close}}
 #' @export
 serialConnection <- function(port = "com1", mode = "115200,n,8,1", 
                              buffering = "none", newline = 0, eof = "",
@@ -120,7 +121,7 @@ close.serialConnection <- function(con, ...) {
 #' @return The result is a string, which can be converted to raw as necessary.
 #' @seealso \code{\link{serial}} \code{\link{write_data}}
 #' @examples
-#'# See the top package documentation for a complete example.
+#'# See `help(serial)` for a complete example.
 #'\dontrun{
 #'data_in <- read_data(con)
 #'}
@@ -150,7 +151,7 @@ read_data.serialConnection <- function(con, ...) {
 #' @aliases write_data write.serialConnection write_data.serialConnection
 #' @seealso \code{\link{serial}} \code{\link{read_data}}
 #' @examples
-#'# See the top package documentation for a complete example.
+#'# See `help(serial)` for a complete example.
 #'  
 #'\dontrun{
 #'write_data(con, "Hello World!")

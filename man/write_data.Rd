@@ -23,7 +23,7 @@ See the example section in \code{\link{serial}}.}
 Writes data to the serial interface.
 }
 \examples{
-# See the top package documentation for a complete example.
+# See `help(serial)` for a complete example.
  
 \dontrun{
 write_data(con, "Hello World!")

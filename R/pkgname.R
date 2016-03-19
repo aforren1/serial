@@ -7,12 +7,12 @@
 #' 
 #' @description
 #' \describe{
-#'  \item{\code{\link{serialConnection}}}{Creates a \code{serialConnection} object}
-#'  \item{\code{\link{open}}}{opens a serial connection}
-#'  \item{\code{\link{close}}}{closes the serial connection}
-#'  \item{\code{\link{read_data}}}{bytewise read from the interface as long as the buffer is empty}
-#'  \item{\code{\link{write_data}}}{writes a string to the serial interface}
-#'  \item{\code{\link{find_devices}}}{helper function to find available serial devices}
+#'  \item{\code{\link{serialConnection}}}{Creates a \code{serialConnection} object.}
+#'  \item{\code{\link{open}}}{opens a serial connection.}
+#'  \item{\code{\link{close}}}{closes the serial connection.}
+#'  \item{\code{\link{read_data}}}{bytewise read from the interface, as long as the buffer is empty.}
+#'  \item{\code{\link{write_data}}}{writes a string to the serial interface.}
+#'  \item{\code{\link{find_devices}}}{helper function to find available serial devices.}
 #' }
 #' 
 #' @examples
@@ -36,22 +36,22 @@
 #' 
 #' \dontrun{
 #' 
-#' # Now configure one of the COM ports with appropriate connection properties
+#' # Now configure one of the COM ports with appropriate connection properties.
 #' con <- serialConnection(port = "CNCA0", # or "tnt0" on linux
 #'                         mode = "115200,n,8,1",
 #'                         newline = 1,
 #'                         translation = "crlf")
 #' 
-#' # Let's open the serial interface.
+#' # open the serial interface,
 #' open(con)
 #' 
-#' # write some stuff
+#' # write some stuff,
 #' write_data(con, "Hello World!")
 #' 
-#' # read, in case something came in
+#' # read, in case something came in,
 #' read_data(con)
 #' 
-#' # close the connection
+#' # and close the connection.
 #' close(con)
 #' }
 #' @concept RS232 serial

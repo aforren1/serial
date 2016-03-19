@@ -21,7 +21,7 @@ This function reads from the serial interface as long as the buffer is not
 empty. The read takes place per byte.
 }
 \examples{
-# See the top package documentation for a complete example.
+# See `help(serial)` for a complete example.
 \dontrun{
 data_in <- read_data(con)
 }

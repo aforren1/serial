@@ -8,36 +8,36 @@ serialConnection(port = "com1", mode = "115200,n,8,1", buffering = "none",
   newline = 0, eof = "", translation = "lf", handshake = "none")
 }
 \arguments{
-\item{port}{COM port name, should also work in Linux. Also, virtual COMs are 
-supported -- USB should work too.}
+\item{port}{the COM port name, should also work in Linux. Also, virtual COMs are 
+supported, meaning USB should work too.}
 
-\item{mode}{communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}"
+\item{mode}{the communication mode "\code{<BAUD>, <PARITY>, <DATABITS>, <STOPBITS>}".
 \describe{
-   \item{\code{BAUD}}{sets the baud rate (bits per second)}
-   \item{\code{PARITY}}{\emph{n, o, e, m, s} stands for "none", "odd", "even", "mark" and "space"}
-   \item{\code{DATABITS}}{integer number of data bits. The value can range from 5 to 8}
-   \item{\code{STOPBITS}}{integer number of stop bits. This can be "1" or "2"}
+   \item{\code{BAUD}}{sets the baud rate (bits per second).}
+   \item{\code{PARITY}}{\emph{n, o, e, m, s} stands for "none", "odd", "even", "mark" and "space".}
+   \item{\code{DATABITS}}{integer number of data bits. The value can range from 5 to 8.}
+   \item{\code{STOPBITS}}{integer number of stop bits. This can be "1" or "2".}
        }}
 
-\item{buffering}{"\code{none}", for RS232 serial interface only; other modes don't work in this case}
+\item{buffering}{"\code{none}", for RS232 serial interface only; other modes don't work in this case.}
 
-\item{newline}{\code{<BOOL>}, whether a new transmission starts with a newline or not
+\item{newline}{\code{<BOOL>}, whether a new transmission starts with a newline or not.
 \describe{
-  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} before transmitting}
-  \item{\code{FALSE} or 0}{no newline}
+  \item{\code{TRUE} or 1}{send newline-char according to \code{<translation>} before transmitting.}
+  \item{\code{FALSE} or 0}{no newline.}
           }}
 
 \item{eof}{\code{<CHAR>}, termination char of the datastream. It only makes sense
-if \code{<translation>} is 'binary' and the stream is a file}
+if \code{<translation>} is "binary" and the stream is a file.}
 
 \item{translation}{each transmitted string is terminated by the transmission
-character. This could be 'lf', 'cr', 'crlf', or 'binary'}
+character. This could be "lf", "cr", "crlf", or "binary".}
 
-\item{handshake}{determines the type of handshaking the communication
+\item{handshake}{determines the type of handshaking the communication.
 \describe{
-  \item{"\code{none}"}{no handshake is done}
-  \item{"\code{rtscts}"}{hardware handshake is enabled}
-  \item{"\code{xonxoff}"}{software handshake via extra characters is enabled}
+  \item{"\code{none}"}{no handshake is done.}
+  \item{"\code{rtscts}"}{hardware handshake is enabled.}
+  \item{"\code{xonxoff}"}{software handshake via extra characters is enabled.}
   }}
 }
 \value{
@@ -45,5 +45,8 @@ An object of the class "\code{serialConnection}" is returned.
 }
 \description{
 Sets up the interface parameters.
+}
+\seealso{
+\code{\link{serial}} \code{\link{open}} \code{\link{close}}
 }
 
