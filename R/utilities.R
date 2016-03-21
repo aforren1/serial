@@ -20,7 +20,7 @@ find_devices <- function() {
       # check symbolic links
       cmmd <- 'ls -l /dev/serial/by-id | grep "\\->"'
       dev_info <- system(cmmd, intern = TRUE)
-      regmatches(dev_info, regexpr('(?:tty).*|(?:cu).*', text = dev_info))
+      regmatches(dev_info, regexpr('(?:tty).*', text = dev_info))
     } else {
       character(0)
     }
@@ -34,7 +34,7 @@ find_devices <- function() {
   
   else if (identical(os, "osx")) {
     dev_info <- system('ls /dev/tty.*', intern = TRUE)
-    regmatches(dev_info, regexpr("(?:tty).*|(?:cu).*", text = dev_info))
+    gsub("/dev/", "", dev_info)
   } 
   
   else {
