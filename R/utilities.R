@@ -6,7 +6,8 @@
 #' 
 #' @usage find_devices()
 #' 
-#' @return A character vector with all active devices, or `character(0)` if no device is found.
+#' @return A vector of character elements containing all active devices, or 
+#' `character(0)` if no device is found.
 #' @examples
 #' \dontrun{
 #' available_devices <- find_devices()

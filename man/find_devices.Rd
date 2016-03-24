@@ -7,7 +7,8 @@
 find_devices()
 }
 \value{
-A character vector with all active devices, or `character(0)` if no device is found.
+A vector of character elements containing all active devices, or 
+`character(0)` if no device is found.
 }
 \description{
 This function checks for serial ports in use on the host device.

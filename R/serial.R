@@ -142,11 +142,7 @@ read_data.serialConnection <- function(con, ...) {
 #' 
 #' @name write_data
 #' @param con Object of class \code{serialConnection}
-#' @param dat Data string to write on the serial interface. This can either
-#'                be a character string or any R object that can be coerced
-#'                to a character string by the \code{\link{paste}} function,
-#'                though the latter occurs with a warning. 
-#'                See the example section in \code{\link{serial}}.
+#' @param dat Data string to write on the serial interface. This must be a character string.
 #' @param ... Currently ignored.
 #' @aliases write_data write.serialConnection write_data.serialConnection
 #' @seealso \code{\link{serial}} \code{\link{read_data}}
@@ -155,7 +151,7 @@ read_data.serialConnection <- function(con, ...) {
 #'  
 #'\dontrun{
 #'write_data(con, "Hello World!")
-#'write_data(con, 2) # coerce with warning
+#'write_data(con, 2) # error
 #'}
 #' @importFrom methods is
 #' @importFrom tcltk .Tcl
@@ -163,8 +159,7 @@ read_data.serialConnection <- function(con, ...) {
 write_data.serialConnection <- function(con, dat, ...) {
   
   if (!is(dat, 'character')) {
-    warning('dat is not a character, coercing to character with paste().')
-    dat <- paste(dat)
+    stop("dat is not a character.")
   }
   
   nl <- ifelse(con$newline, "", "-nonewline ")

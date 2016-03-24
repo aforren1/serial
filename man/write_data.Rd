@@ -11,11 +11,7 @@
 \arguments{
 \item{con}{Object of class \code{serialConnection}}
 
-\item{dat}{Data string to write on the serial interface. This can either
-be a character string or any R object that can be coerced
-to a character string by the \code{\link{paste}} function,
-though the latter occurs with a warning. 
-See the example section in \code{\link{serial}}.}
+\item{dat}{Data string to write on the serial interface. This must be a character string.}
 
 \item{...}{Currently ignored.}
 }
@@ -27,7 +23,7 @@ Writes data to the serial interface.
  
 \dontrun{
 write_data(con, "Hello World!")
-write_data(con, 2) # coerce with warning
+write_data(con, 2) # error
 }
 }
 \seealso{
