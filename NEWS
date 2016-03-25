@@ -23,7 +23,6 @@ BUG FIXES AND MINOR IMPROVEMENTS
     as stated by the help file and didn't seem to serve any purpose.
 * Reorganized *.R files.
 * Minor refactoring of existing functions.
-* Started to add unit tests using `testthat`.
 * Various spelling and grammatical corrections, and documentation improvements.
 * Added '-timeout 5000' to `.Tcl` call in `open.serialConnection`. I had an issue
     with OSX hanging and wanted to see if that was the issue.
