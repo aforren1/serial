@@ -1,0 +1,29 @@
+serial 1.2
+-------------------------------------------------------
+
+NEW FEATURES
+
+* Added `.onAttach()` to attempt to catch older OSX installations with incomplete
+    tcltk installations.
+* Added `find_devices()` helper function, which should show active serial devices on
+    OSX, Linux, and Windows.
+* Deprecated `read.serialConnection` and `write.serialConnection` for 
+    `read_data` and `write_data` generics, and associated "serialConnection" 
+    methods. This standardizes the different functions that can act on 
+    these objects. I would have rather done `read` and `write`, but there's a
+    non-generic `write` in base R, and I would like to avoid masking it 
+    (eg. like `dplyr::filter`).    
+
+
+BUG FIXES AND MINOR IMPROVEMENTS
+
+* Import methods, utils, and tcltk.
+* Removed `try()` calls in functions to allow easier error handling by the user.
+* Removed the `name` argument to `serialConnection()`, because it wasn't optional
+    as stated by the help file and didn't seem to serve any purpose.
+* Reorganized *.R files.
+* Minor refactoring of existing functions.
+* Started to add unit tests using `testthat`.
+* Various spelling and grammatical corrections, and documentation improvements.
+* Added '-timeout 5000' to `.Tcl` call in `open.serialConnection`. I had an issue
+    with OSX hanging and wanted to see if that was the issue.
