@@ -15,5 +15,5 @@ To get the released version from CRAN, type:
 
 Or to install the development version from Github:
 
-# install.packages("devtools") # if devtools not installed
-devtools::install_github("aforren1/serial")
+    # install.packages("devtools") # if devtools not installed
+    devtools::install_github("aforren1/serial")
