@@ -2,7 +2,7 @@
 % Please edit documentation in R/utilities.R
 \name{find_devices}
 \alias{find_devices}
-\title{Looks for serial ports in use.}
+\title{Find serial ports in use.}
 \usage{
 find_devices()
 }
@@ -15,7 +15,10 @@ This function checks for serial ports in use on the host device.
 }
 \examples{
 \dontrun{
+# Use the first active device.
 available_devices <- find_devices()
+
+con <- serialConnection(available_devices[1])
 }
 }
 

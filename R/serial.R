@@ -168,3 +168,12 @@ write_data.serialConnection <- function(con, dat, ...) {
   #   with out quoting space and control characters this will fail 
   invisible(NULL)
 }
+
+
+# Deprecated
+
+#' @export
+write.serialConnection <- function(con, dat, ...) UseMethod("write_data")
+
+#' @export
+read.serialConnection <- function(con, ...) UseMethod("read_data")

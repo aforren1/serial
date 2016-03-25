@@ -1,6 +1,6 @@
 # Utilities
 
-#' Looks for serial ports in use.
+#' Find serial ports in use.
 #' 
 #' This function checks for serial ports in use on the host device.
 #' 
@@ -10,7 +10,10 @@
 #' `character(0)` if no device is found.
 #' @examples
 #' \dontrun{
+#' # Use the first active device.
 #' available_devices <- find_devices()
+#' 
+#' con <- serialConnection(available_devices[1])
 #' }
 #' @importFrom utils file_test
 #' @export
@@ -43,6 +46,7 @@ find_devices <- function() {
   }
 }
 
+# Try to find out the host operating system
 get_os <- function() {
   ifelse(identical(.Platform$OS.type, 'windows'), 'win', 
                ifelse(grepl("darwin", R.version$os), 'osx', 'linux'))

@@ -1,3 +1,4 @@
+# Try to catch incomplete tcltk on osx
 .onAttach <- function(...) {
   if (grepl("darwin", R.version$os) & 
       length(list.files("/opt/X11/bin", pattern = "Xquartz")) == 0) {
