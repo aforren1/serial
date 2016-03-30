@@ -112,22 +112,22 @@ close.serialConnection <- function(con, ...) {
 #' This function reads from the serial interface as long as the buffer is not
 #' empty. The read takes place per byte.
 #' 
-#' @name read_data
+#' @name read
 #' @param con Object of class \code{serialConnection}
 #' @param ... Currently ignored.
 #' 
-#' @aliases read_data read.serialConnection read_data.serialConnection
+#' @aliases read read.serialConnection
 #' 
 #' @return The result is a string, which can be converted to raw as necessary.
-#' @seealso \code{\link{serial}} \code{\link{write_data}}
+#' @seealso \code{\link{serial}} \code{\link{write}}
 #' @examples
 #'# See `help(serial)` for a complete example.
 #'\dontrun{
-#'data_in <- read_data(con)
+#'data_in <- read(con)
 #'}
 #' @importFrom tcltk .Tcl tclvalue
 #' @export 
-read_data.serialConnection <- function(con, ...) {
+read.serialConnection <- function(con, ...) {
   res <- ""
   while(1) {
     tmp <- tclvalue(.Tcl(paste("gets $sdev_", con$port, sep = "")))
@@ -140,23 +140,23 @@ read_data.serialConnection <- function(con, ...) {
 
 #' Writes data to the serial interface. 
 #' 
-#' @name write_data
+#' @name write
 #' @param con Object of class \code{serialConnection}
 #' @param dat Data string to write on the serial interface. This must be a character string.
 #' @param ... Currently ignored.
-#' @aliases write_data write.serialConnection write_data.serialConnection
-#' @seealso \code{\link{serial}} \code{\link{read_data}}
+#' @aliases write write.serialConnection
+#' @seealso \code{\link{serial}} \code{\link{read}}
 #' @examples
 #'# See `help(serial)` for a complete example.
 #'  
 #'\dontrun{
-#'write_data(con, "Hello World!")
-#'write_data(con, 2) # error
+#'write(con, "Hello World!")
+#'write(con, 2) # error
 #'}
 #' @importFrom methods is
 #' @importFrom tcltk .Tcl
 #' @export 
-write_data.serialConnection <- function(con, dat, ...) {
+write.serialConnection <- function(con, dat, ...) {
   
   if (!is(dat, 'character')) {
     stop("dat is not a character.")
@@ -172,8 +172,8 @@ write_data.serialConnection <- function(con, dat, ...) {
 
 # Deprecated
 
-#' @export
-write.serialConnection <- function(con, dat, ...) UseMethod("write_data")
-
-#' @export
-read.serialConnection <- function(con, ...) UseMethod("read_data")
+#' #' @export
+#' write.serialConnection <- function(con, dat, ...) UseMethod("write")
+#' 
+#' #' @export
+#' read.serialConnection <- function(con, ...) UseMethod("read")

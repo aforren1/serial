@@ -10,8 +10,8 @@
  \item{\code{\link{serialConnection}}}{Creates a \code{serialConnection} object.}
  \item{\code{\link{open}}}{opens a serial connection.}
  \item{\code{\link{close}}}{closes the serial connection.}
- \item{\code{\link{read_data}}}{bytewise read from the interface, as long as the buffer is empty.}
- \item{\code{\link{write_data}}}{writes a string to the serial interface.}
+ \item{\code{\link{read}}}{bytewise read from the interface, as long as the buffer is empty.}
+ \item{\code{\link{write}}}{writes a string to the serial interface.}
  \item{\code{\link{find_devices}}}{helper function to find available serial devices.}
 }
 }
@@ -52,10 +52,10 @@ con <- serialConnection(port = "CNCA0", # or "tnt0" on linux
 open(con)
 
 # write some stuff,
-write_data(con, "Hello World!")
+write(con, "Hello World!")
 
 # read, in case something came in,
-read_data(con)
+read(con)
 
 # and close the connection.
 close(con)

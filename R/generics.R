@@ -1,7 +1,7 @@
 # Generics
 
 #' @export
-write_data <- function(con, dat, ...) UseMethod("write_data")
+write <- function(con, dat, ...) UseMethod("write")
 
 #' @export
-read_data <- function(con, ...) UseMethod("read_data")
+read <- function(con, ...) UseMethod("read")

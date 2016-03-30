@@ -19,8 +19,8 @@ BUG FIXES AND MINOR IMPROVEMENTS
 
 * Import methods, utils, and tcltk.
 * Removed `try()` calls in functions to allow easier error handling by the user.
-* Removed the `name` argument to `serialConnection()`, because it wasn't optional
-    as stated by the help file and didn't seem to serve any purpose.
+* Removed the `name` argument to `serialConnection()`, because it was not optional
+    as stated by the help file and did not seem to serve any purpose.
 * Reorganized *.R files.
 * Minor refactoring of existing functions.
 * Various spelling and grammatical corrections, and documentation improvements.
