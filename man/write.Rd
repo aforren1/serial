@@ -5,10 +5,10 @@
 \alias{write.serialConnection}
 \title{Writes data to the serial interface.}
 \usage{
-\method{write}{serialConnection}(con, dat, ...)
+\method{write}{serialConnection}(x, dat, ...)
 }
 \arguments{
-\item{con}{Object of class \code{serialConnection}}
+\item{x}{Object of class \code{serialConnection}}
 
 \item{dat}{Data string to write on the serial interface. This must be a character string.}
 

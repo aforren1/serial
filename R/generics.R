@@ -1,7 +1,10 @@
 # Generics
 
 #' @export
-write <- function(con, dat, ...) UseMethod("write")
+read <- function(con, ...) UseMethod("read")
 
 #' @export
-read <- function(con, ...) UseMethod("read")
+write <- function(x, ...) UseMethod("write")
+
+#' @export
+write.default <- function(x, ...) base::write(x, ...)

@@ -6,7 +6,7 @@
 #' 
 #' @usage find_devices()
 #' 
-#' @return A vector of character elements containing all active devices, or 
+#' @return A vector of strings containing the names of all active devices, or 
 #' `character(0)` if no device is found.
 #' @examples
 #' \dontrun{

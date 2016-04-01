@@ -8,11 +8,9 @@ NEW FEATURES
 * Added `find_devices()` helper function, which should show active serial devices on
     OSX, Linux, and Windows.
 * Deprecated `read.serialConnection` and `write.serialConnection` for 
-    `read_data` and `write_data` generics, and associated "serialConnection" 
+    `read` and `write` generics, and associated "serialConnection" 
     methods. This standardizes the different functions that can act on 
-    these objects. I would have rather done `read` and `write`, but there's a
-    non-generic `write` in base R, and I would like to avoid masking it 
-    (eg. like `dplyr::filter`).    
+    these objects. Additionally, export a generic version of `write` from the base package.
 
 
 BUG FIXES AND MINOR IMPROVEMENTS

@@ -141,7 +141,7 @@ read.serialConnection <- function(con, ...) {
 #' Writes data to the serial interface. 
 #' 
 #' @name write
-#' @param con Object of class \code{serialConnection}
+#' @param x Object of class \code{serialConnection}
 #' @param dat Data string to write on the serial interface. This must be a character string.
 #' @param ... Currently ignored.
 #' @aliases write write.serialConnection
@@ -156,14 +156,14 @@ read.serialConnection <- function(con, ...) {
 #' @importFrom methods is
 #' @importFrom tcltk .Tcl
 #' @export 
-write.serialConnection <- function(con, dat, ...) {
+write.serialConnection <- function(x, dat, ...) {
   
   if (!is(dat, 'character')) {
     stop("dat is not a character.")
   }
   
-  nl <- ifelse(con$newline, "", "-nonewline ")
-  .Tcl(paste("puts ", nl, "$sdev_", con$port, " \"", dat, "\"", sep = ""))
+  nl <- ifelse(x$newline, "", "-nonewline ")
+  .Tcl(paste("puts ", nl, "$sdev_", x$port, " \"", dat, "\"", sep = ""))
   #   ..," \"", dat,"\"",.. -> quotes dat in TCL String
   #   with out quoting space and control characters this will fail 
   invisible(NULL)
