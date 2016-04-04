@@ -12,13 +12,13 @@
  \item{\code{\link{close}}}{closes the serial connection.}
  \item{\code{\link{read}}}{bytewise read from the interface, as long as the buffer is empty.}
  \item{\code{\link{write}}}{writes a string to the serial interface.}
- \item{\code{\link{find_devices}}}{helper function to find available serial devices.}
+ \item{\code{\link{FindDevices}}}{tries to find available serial devices.}
 }
 }
 \details{
 This R package provides the functionality to use the serial communication ports
 "COM" to use RS232/RS422/RS485 functionality of the corresponding hardware.
-Also, virtual COM ports via USB do work, as long as they are mapped to COM[n] (Windows)
+Also, virtual COM ports via USB work, as long as they are mapped to COM[n] (Windows)
 or tty[n] (Mac/Linux) in the operating system.
 }
 \examples{

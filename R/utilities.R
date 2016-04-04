@@ -4,20 +4,20 @@
 #' 
 #' This function checks for serial ports in use on the host device.
 #' 
-#' @usage find_devices()
+#' @usage FindDevices()
 #' 
 #' @return A vector of strings containing the names of all active devices, or 
 #' `character(0)` if no device is found.
 #' @examples
 #' \dontrun{
 #' # Use the first active device.
-#' available_devices <- find_devices()
+#' available_devices <- FindDevices()
 #' 
 #' con <- serialConnection(available_devices[1])
 #' }
 #' @importFrom utils file_test
 #' @export
-find_devices <- function() {
+FindDevices <- function() {
   os <- get_os()
   if (identical(os, "linux")) {
     if (file_test("-d", "/dev/serial/by-id")) { # dir only exists when device connected

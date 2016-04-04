@@ -5,7 +5,7 @@ NEW FEATURES
 
 * Added `.onAttach()` to attempt to catch older OSX installations with incomplete
     tcltk installations.
-* Added `find_devices()` helper function, which should show active serial devices on
+* Added `findDevices()` helper function, which should show active serial devices on
     OSX, Linux, and Windows.
 * Deprecated `read.serialConnection` and `write.serialConnection` for 
     `read` and `write` generics, and associated "serialConnection" 
